@@ -9,9 +9,9 @@
         public int StockMinimo { get; set; }
         public int NumeroLote { get; set; }
         public DateTime FechaVencimiento { get; set; }
-
         public int IdProveedor { get; set; }
 
-
+        public Proveedor Proveedor { get; set; }
+        public IEnumerable<OrdenProducto> OrdenProductos { get; set; }
     }
 }

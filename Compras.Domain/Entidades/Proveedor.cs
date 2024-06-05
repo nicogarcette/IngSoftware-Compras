@@ -9,5 +9,9 @@
         public string Direccion { get; set; }
         public int Cuil { get; set; }
         public string NombreEmpresa { get; set; }
+
+        public IEnumerable<Producto> Productos { get; set; }
+        public IEnumerable<OrdenDeCompra> OrdenesDeCompra { get; set; }
+
     }
 }

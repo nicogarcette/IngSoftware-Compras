@@ -1,4 +1,10 @@
+using Compras.Infraestructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+#region InjectionDependecy
+builder.Services.AddInfraestructureLayer(builder.Configuration);
+#endregion
 
 // Add services to the container.
 
