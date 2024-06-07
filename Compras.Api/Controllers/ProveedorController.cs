@@ -46,8 +46,17 @@ namespace Compras.Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            try
+            {
+                await _proveedorServices.DeleteProveedor(id);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

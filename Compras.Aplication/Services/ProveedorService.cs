@@ -36,9 +36,21 @@ namespace Compras.Aplication.Services
         }
 
 
-        public Task DeleteProveedor(int id)
+        public async Task DeleteProveedor(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Proveedor proveedor = await _proveedorRepository.GetByIdAsync(id);
+
+                if(proveedor == null)
+                    throw new Exception("El proveedor no existe.");
+
+                await _proveedorRepository.Delete(proveedor);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         public Task<List<ProveedorDto>> GetAllProveedores()
