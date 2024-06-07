@@ -9,6 +9,6 @@ namespace Compras.Aplication.Interfaces.IServices
         Task<ProveedorDto> GetProveedorById(int id);
         Task<int> AddProveedor(ProveedorRequest proveedor);
         Task DeleteProveedor(int id);
-        Task UpdateProveedor(ProveedorRequest proveedor);
+        Task UpdateProveedor(int id, ProveedorRequest proveedor);
     }
 }

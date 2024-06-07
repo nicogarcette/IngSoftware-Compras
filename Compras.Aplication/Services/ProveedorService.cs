@@ -100,9 +100,28 @@ namespace Compras.Aplication.Services
             }
         }
 
-        public Task UpdateProveedor(ProveedorRequest proveedor)
+        public async Task UpdateProveedor(int id, ProveedorRequest request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Proveedor proveedor = await _proveedorRepository.GetByIdAsync(id);
+
+                if(proveedor == null)
+                    throw new Exception("El proveedor no existe.");
+
+                proveedor.Nombre = request.Nombre;
+                proveedor.Apellido = request.Apellido;
+                proveedor.Direccion = request.Direccion;
+                proveedor.Cuil = request.Cuil;
+                proveedor.Telefono = request.Telefono;
+                proveedor.NombreEmpresa = request.NombreEmpresa;
+
+                await _proveedorRepository.Update(proveedor);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
     }
 }

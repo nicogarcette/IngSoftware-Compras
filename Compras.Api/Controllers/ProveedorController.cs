@@ -56,9 +56,17 @@ namespace Compras.Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] ProveedorRequest value)
         {
-
+            try
+            {
+                await _proveedorServices.UpdateProveedor(id, value);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete]
