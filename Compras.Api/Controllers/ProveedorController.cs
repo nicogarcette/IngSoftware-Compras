@@ -25,8 +25,16 @@ namespace Compras.Api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var response = await _proveedorServices.GetProveedorById(id);
-            return Ok(response);
+            try
+            {
+                var response = await _proveedorServices.GetProveedorById(id);
+                return Ok(response);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
 

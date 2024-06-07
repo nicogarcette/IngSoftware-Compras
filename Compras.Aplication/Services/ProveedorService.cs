@@ -61,20 +61,31 @@ namespace Compras.Aplication.Services
         public async Task<ProveedorDto> GetProveedorById(int id)
         {
 
-            Proveedor proveedor = await _proveedorRepository.GetByIdAsync(id);
-
-            ProveedorDto response = new ProveedorDto()
+            try
             {
-                Id = proveedor.Id,
-                Nombre = proveedor.Nombre,
-                Apellido = proveedor.Apellido,
-                Cuil = proveedor.Cuil,
-                Direccion = proveedor.Direccion,
-                Telefono = proveedor.Telefono,
-                NombreEmpresa = proveedor.NombreEmpresa
-            };
+                Proveedor proveedor = await _proveedorRepository.GetByIdAsync(id);
 
-            return response;
+                if(proveedor is null)
+                    throw new Exception("El proveedor no existe.");
+
+                ProveedorDto response = new ProveedorDto()
+                {
+                    Id = proveedor.Id,
+                    Nombre = proveedor.Nombre,
+                    Apellido = proveedor.Apellido,
+                    Cuil = proveedor.Cuil,
+                    Direccion = proveedor.Direccion,
+                    Telefono = proveedor.Telefono,
+                    NombreEmpresa = proveedor.NombreEmpresa
+                };
+
+                return response;
+            }
+            catch(Exception)
+            {
+
+                throw;
+            }
         }
 
         public Task UpdateProveedor(ProveedorRequest proveedor)
