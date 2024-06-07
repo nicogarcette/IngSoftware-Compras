@@ -16,9 +16,18 @@ namespace Compras.Api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var response = await _proveedorServices.GetAllProveedores();
+                return Ok(response);
+            }
+            catch(Exception)
+            {
+
+                return Ok();
+            }
         }
 
         [HttpGet]

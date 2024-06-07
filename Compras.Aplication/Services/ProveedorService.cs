@@ -53,9 +53,21 @@ namespace Compras.Aplication.Services
             }
         }
 
-        public Task<List<ProveedorDto>> GetAllProveedores()
+        public async Task<List<ProveedorDto>> GetAllProveedores()
         {
-            throw new NotImplementedException();
+            var proveedores = await _proveedorRepository.GetAllAsync();
+
+            List<ProveedorDto> ListResponse = proveedores.Select(proveedor => new ProveedorDto()
+            {
+                Nombre = proveedor.Nombre,
+                Apellido = proveedor.Apellido,
+                Direccion = proveedor.Direccion,
+                Cuil = proveedor.Cuil,
+                Telefono = proveedor.Telefono,
+                NombreEmpresa = proveedor.NombreEmpresa
+            }).ToList();
+
+            return ListResponse;
         }
 
         public async Task<ProveedorDto> GetProveedorById(int id)
