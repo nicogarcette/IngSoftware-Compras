@@ -1,4 +1,6 @@
-﻿using Compras.Infraestructure.Persistence;
+﻿using Compras.Aplication.Interfaces.IRepositories;
+using Compras.Infraestructure.Persistence;
+using Compras.Infraestructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +16,11 @@ namespace Compras.Infraestructure
             {
                 options.UseSqlServer(configuration.GetConnectionString("ConnectionDB"));
             });
+
+
+            services.AddScoped<IProveedorRepository, ProveedorRepository>();
+
+
         }
     }
 }
