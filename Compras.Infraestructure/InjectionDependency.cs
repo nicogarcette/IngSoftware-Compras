@@ -19,8 +19,8 @@ namespace Compras.Infraestructure
 
 
             services.AddScoped<IProveedorRepository, ProveedorRepository>();
-
-
+            services.AddScoped<IProductoRepository, ProductoRepository>();
+            services.AddScoped<IOrdenCompraRepository, OrdenCompraRepository>();
         }
     }
 }
