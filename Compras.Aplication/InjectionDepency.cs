@@ -10,6 +10,8 @@ namespace Compras.Aplication
         public static void AddApplicationLayer(this IServiceCollection services)
         {
             services.AddScoped<IProveedorService, ProveedorService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IOrdenCompraService, OrdenCompraService>();
         }
     }
 }

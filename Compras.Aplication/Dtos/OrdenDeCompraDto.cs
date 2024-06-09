@@ -13,6 +13,6 @@ namespace Compras.Aplication.Dtos
         public int? PrecioTotal { get; set; }
         public DateTime Fecha { get; set; }
         public int IdProveedor { get; set; }
-
+        // agregar atributos
     }
 }
