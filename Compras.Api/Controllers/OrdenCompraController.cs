@@ -50,13 +50,21 @@ namespace Compras.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] OrdenCompraRequest value)
         {
-            var response = await _ordenCompraService.AddOrdenCompra(value);
-            return Ok(response);
+
+            try
+            {
+                var response = await _ordenCompraService.AddOrdenCompra(value);
+                return Ok(response);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] OrdenCompraRequest value)
+        public async Task<IActionResult> Put(int id, [FromBody] OrdenCompraUpdate value)
         {
             try
             {

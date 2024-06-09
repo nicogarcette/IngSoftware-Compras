@@ -9,6 +9,6 @@ namespace Compras.Aplication.Interfaces.IServices
         Task<OrdenDeCompraDto> GetOrdenCompraById(int id);
         Task<int> AddOrdenCompra(OrdenCompraRequest ordenCompra);
         Task DeleteOrdenCompra(int id);
-        Task UpdateOrdenCompra(int id, OrdenCompraRequest ordenCompra);
+        Task UpdateOrdenCompra(int id, OrdenCompraUpdate ordenCompra);
     }
 }

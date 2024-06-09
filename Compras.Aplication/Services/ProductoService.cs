@@ -10,19 +10,32 @@ namespace Compras.Aplication.Services
     {
 
         private readonly IProductoRepository _productoRepository;
+        private readonly IProveedorRepository _proveedorRepository;
 
-        public ProductoService(IProductoRepository productoRepository)
+
+        public ProductoService(IProductoRepository productoRepository, IProveedorRepository proveedorRepository)
         {
             _productoRepository = productoRepository;
+            _proveedorRepository = proveedorRepository;
         }
 
         public async Task<int> AddProducto(ProductoRequest producto)
         {
+            var proveedor = await _proveedorRepository.GetByIdAsync(producto.IdProveedor);
+
+            if(proveedor == null) throw new Exception("El proveedor no existe");
 
             // hacer posible validaciones si fuera el caso.
             Producto entidad = new Producto()
             {
-                //setears
+                PrecioVenta = producto.PrecioVenta,
+                Descripcion = producto.Descripcion,
+                StockActual = producto.StockActual,
+                StockMinimo = producto.StockMinimo,
+                NumeroLote = producto.NumeroLote,
+                FechaVencimiento = producto.FechaVencimiento,
+                IdProveedor = producto.IdProveedor,
+
             };
 
             await _productoRepository.Add(entidad);
@@ -52,9 +65,15 @@ namespace Compras.Aplication.Services
         {
             var proveedores = await _productoRepository.GetAllAsync();
 
-            List<ProductoDto> ListResponse = proveedores.Select(proveedor => new ProductoDto()
+            List<ProductoDto> ListResponse = proveedores.Select(entidad => new ProductoDto()
             {
-                // SETEAR
+                Id = entidad.Id,
+                PrecioVenta = entidad.PrecioVenta,
+                Descripcion = entidad.Descripcion,
+                StockActual = entidad.StockActual,
+                StockMinimo = entidad.StockMinimo,
+                NumeroLote = entidad.NumeroLote,
+                FechaVencimiento = entidad.FechaVencimiento,
             }).ToList();
 
             return ListResponse;
@@ -72,7 +91,13 @@ namespace Compras.Aplication.Services
 
                 ProductoDto response = new ProductoDto()
                 {
-                    // setear los datos
+                    Id = entidad.Id,
+                    PrecioVenta = entidad.PrecioVenta,
+                    Descripcion = entidad.Descripcion,
+                    StockActual = entidad.StockActual,
+                    StockMinimo = entidad.StockMinimo,
+                    NumeroLote = entidad.NumeroLote,
+                    FechaVencimiento = entidad.FechaVencimiento,
                 };
 
                 return response;
@@ -92,9 +117,17 @@ namespace Compras.Aplication.Services
                 if(entidad == null)
                     throw new Exception("El producto no existe.");
 
+                var proveedor = await _proveedorRepository.GetByIdAsync(request.IdProveedor);
 
-                // actualiazar los campos
+                if(proveedor == null) throw new Exception("El proveedor no existe");
 
+                entidad.PrecioVenta = request.PrecioVenta;
+                entidad.Descripcion = request.Descripcion;
+                entidad.StockActual = request.StockActual;
+                entidad.StockMinimo = request.StockMinimo;
+                entidad.NumeroLote = request.NumeroLote;
+                entidad.FechaVencimiento = request.FechaVencimiento;
+                entidad.IdProveedor = request.IdProveedor;
 
                 await _productoRepository.Update(entidad);
             }

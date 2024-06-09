@@ -49,8 +49,15 @@ namespace Compras.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ProductoRequest value)
         {
-            var response = await _productoServices.AddProducto(value);
-            return Ok(response);
+            try
+            {
+                var response = await _productoServices.AddProducto(value);
+                return Ok(response);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]

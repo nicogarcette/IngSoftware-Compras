@@ -28,12 +28,12 @@ namespace Compras.Infraestructure.Repositories
 
         public async Task<IEnumerable<OrdenDeCompra>> GetAllAsync()
         {
-            return await _context.OrdenesCompras.ToListAsync();
+            return await _context.OrdenesCompras.Include(x => x.Proveedor).ToListAsync();
         }
 
         public async Task<OrdenDeCompra> GetByIdAsync(int id)
         {
-            return await _context.OrdenesCompras.FindAsync(id);
+            return await _context.OrdenesCompras.Include(x => x.Proveedor).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task Update(OrdenDeCompra entity)

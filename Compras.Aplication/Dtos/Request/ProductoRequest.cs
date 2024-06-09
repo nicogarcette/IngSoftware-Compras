@@ -2,7 +2,6 @@
 {
     public class ProductoRequest
     {
-        public int Id { get; set; }
         public string Descripcion { get; set; }
         public double PrecioVenta { get; set; }
         public int StockActual { get; set; }

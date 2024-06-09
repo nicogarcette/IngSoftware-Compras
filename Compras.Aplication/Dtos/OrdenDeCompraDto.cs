@@ -2,8 +2,10 @@
 {
     public class OrdenDeCompraDto
     {
-
-
-        // agregar atributos
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public int? PrecioTotal { get; set; }
+        public DateTime Fecha { get; set; }
+        public ProveedorDto Proveedor { get; set; }
     }
 }

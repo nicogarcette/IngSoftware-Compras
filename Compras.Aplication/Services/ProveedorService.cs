@@ -59,6 +59,7 @@ namespace Compras.Aplication.Services
 
             List<ProveedorDto> ListResponse = proveedores.Select(proveedor => new ProveedorDto()
             {
+                Id = proveedor.Id,
                 Nombre = proveedor.Nombre,
                 Apellido = proveedor.Apellido,
                 Direccion = proveedor.Direccion,
