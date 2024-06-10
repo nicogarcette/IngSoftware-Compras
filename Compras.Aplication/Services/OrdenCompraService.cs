@@ -11,11 +11,16 @@ namespace Compras.Aplication.Services
 
         private readonly IOrdenCompraRepository _ordenCompraRepository;
         private readonly IProveedorRepository _proveedorRepository;
+        private readonly IProductoRepository _productoRepository;
 
-        public OrdenCompraService(IOrdenCompraRepository ordenCompraRepository, IProveedorRepository proveedorRepository)
+
+        public OrdenCompraService(IOrdenCompraRepository ordenCompraRepository,
+                                    IProveedorRepository proveedorRepository,
+                                    IProductoRepository productoRepository)
         {
             _ordenCompraRepository = ordenCompraRepository;
             _proveedorRepository = proveedorRepository;
+            _productoRepository = productoRepository;
         }
 
         public async Task<int> AddOrdenCompra(OrdenCompraRequest orden)
@@ -23,14 +28,41 @@ namespace Compras.Aplication.Services
 
             var proveedor = await _proveedorRepository.GetByIdAsync(orden.IdProveedor);
 
-            if(proveedor == null) throw new Exception("el proveedor no existe");
+            if(proveedor == null) throw new Exception("El proveedor no existe");
+
+            List<OrdenProducto> ordenProductos = new List<OrdenProducto>();
+            int precioTotal = 0;
+
+            foreach(var item in orden.Productos)
+            {
+
+                if(item.Cantidad <= 0) throw new Exception($"La cantidad del producto {item.IdProducto} debe ser mayor a cero.");
+
+                var producto = await _productoRepository.GetByIdAsync(item.IdProducto);
+
+                if(producto == null) throw new Exception($"El producto {item.IdProducto} no existe.");
+
+                if(producto.IdProveedor != orden.IdProveedor)
+                    throw new Exception($"El producto {item.IdProducto} es de un proveedor diferente a la orden de compra.");
+
+
+                var ordenProducto = new OrdenProducto
+                {
+                    IdProducto = producto.Id,
+                    Cantidad = item.Cantidad,
+                };
+
+                ordenProductos.Add(ordenProducto);
+                precioTotal += (int)producto.PrecioVenta * item.Cantidad;
+            }
 
             OrdenDeCompra entidad = new OrdenDeCompra()
             {
                 Descripcion = orden.Descripcion,
-                PrecioTotal = 100, //calcular
+                PrecioTotal = precioTotal,
                 Fecha = orden.Fecha,
                 IdProveedor = orden.IdProveedor,
+                OrdenProductos = ordenProductos
             };
 
             await _ordenCompraRepository.Add(entidad);
@@ -46,7 +78,7 @@ namespace Compras.Aplication.Services
                 var entidad = await _ordenCompraRepository.GetByIdAsync(id);
 
                 if(entidad == null)
-                    throw new Exception("la orden no existe.");
+                    throw new Exception("La orden de compra no existe.");
 
                 await _ordenCompraRepository.Delete(entidad);
             }
@@ -75,8 +107,17 @@ namespace Compras.Aplication.Services
                     Cuil = entidad.Proveedor.Cuil,
                     Telefono = entidad.Proveedor.Telefono,
                     NombreEmpresa = entidad.Proveedor.NombreEmpresa
-                }
-
+                },
+                Productos = entidad.OrdenProductos.Select(x => new ProductoDto()
+                {
+                    Id = x.Id,
+                    PrecioVenta = x.Producto.PrecioVenta,
+                    Descripcion = x.Producto.Descripcion,
+                    StockActual = x.Producto.StockActual,
+                    StockMinimo = x.Producto.StockMinimo,
+                    NumeroLote = x.Producto.NumeroLote,
+                    FechaVencimiento = x.Producto.FechaVencimiento,
+                }).ToList()
             }).ToList();
 
             return ListResponse;
@@ -90,7 +131,7 @@ namespace Compras.Aplication.Services
                 var entidad = await _ordenCompraRepository.GetByIdAsync(id);
 
                 if(entidad is null)
-                    throw new Exception("El producto no existe.");
+                    throw new Exception("La orden de compra no existe.");
 
                 OrdenDeCompraDto response = new OrdenDeCompraDto()
                 {
@@ -107,7 +148,18 @@ namespace Compras.Aplication.Services
                         Cuil = entidad.Proveedor.Cuil,
                         Telefono = entidad.Proveedor.Telefono,
                         NombreEmpresa = entidad.Proveedor.NombreEmpresa
-                    }
+                    },
+                    Productos = entidad.OrdenProductos.Select(x => new ProductoDto()
+                    {
+                        Id = x.Id,
+                        PrecioVenta = x.Producto.PrecioVenta,
+                        Descripcion = x.Producto.Descripcion,
+                        StockActual = x.Producto.StockActual,
+                        StockMinimo = x.Producto.StockMinimo,
+                        NumeroLote = x.Producto.NumeroLote,
+                        FechaVencimiento = x.Producto.FechaVencimiento,
+                    }).ToList()
+
                 };
 
                 return response;
@@ -125,7 +177,7 @@ namespace Compras.Aplication.Services
                 var entidad = await _ordenCompraRepository.GetByIdAsync(id);
 
                 if(entidad == null)
-                    throw new Exception("El producto no existe.");
+                    throw new Exception("La orden de compra no existe.");
 
                 entidad.Descripcion = request.Descripcion;
                 entidad.Fecha = request.Fecha;

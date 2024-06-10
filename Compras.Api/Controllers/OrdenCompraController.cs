@@ -15,6 +15,24 @@ namespace Compras.Api.Controllers
             _ordenCompraService = ordenCompraService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] OrdenCompraRequest value)
+        {
+
+            try
+            {
+                var response = await _ordenCompraService.AddOrdenCompra(value);
+
+                return StatusCode(StatusCodes.Status201Created, response);
+
+                return Ok(response);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -26,7 +44,7 @@ namespace Compras.Api.Controllers
             catch(Exception)
             {
 
-                return Ok();
+                return BadRequest();
             }
         }
 
@@ -46,21 +64,6 @@ namespace Compras.Api.Controllers
 
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] OrdenCompraRequest value)
-        {
-
-            try
-            {
-                var response = await _ordenCompraService.AddOrdenCompra(value);
-                return Ok(response);
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
 
         [HttpPut]
         [Route("{id}")]

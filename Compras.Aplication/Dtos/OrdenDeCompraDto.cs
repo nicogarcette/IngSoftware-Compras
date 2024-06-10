@@ -7,5 +7,6 @@
         public int? PrecioTotal { get; set; }
         public DateTime Fecha { get; set; }
         public ProveedorDto Proveedor { get; set; }
+        public List<ProductoDto> Productos { get; set; }
     }
 }

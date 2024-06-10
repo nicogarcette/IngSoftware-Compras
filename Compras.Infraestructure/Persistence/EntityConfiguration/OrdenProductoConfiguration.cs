@@ -15,12 +15,12 @@ namespace Compras.Infraestructure.Persistence.EntityConfiguration
             builder.HasOne(ordenCompra => ordenCompra.Producto)
                 .WithMany(producto => producto.OrdenProductos)
                 .HasForeignKey(ordenCompra => ordenCompra.IdProducto)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(ordenCompra => ordenCompra.OrdenCompra)
                 .WithMany(orden => orden.OrdenProductos)
                 .HasForeignKey(ordenCompra => ordenCompra.IdOrdenCompra)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.Cantidad).IsRequired();
         }

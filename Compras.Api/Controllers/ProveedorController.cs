@@ -15,6 +15,21 @@ namespace Compras.Api.Controllers
             _proveedorServices = proveedorService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] ProveedorRequest value)
+        {
+            try
+            {
+                var response = await _proveedorServices.AddProveedor(value);
+                return StatusCode(StatusCodes.Status201Created, response);
+
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -25,8 +40,7 @@ namespace Compras.Api.Controllers
             }
             catch(Exception)
             {
-
-                return Ok();
+                return BadRequest();
             }
         }
 
@@ -46,13 +60,6 @@ namespace Compras.Api.Controllers
 
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ProveedorRequest value)
-        {
-            var response = await _proveedorServices.AddProveedor(value);
-            return Ok(response);
-        }
 
         [HttpPut]
         [Route("{id}")]

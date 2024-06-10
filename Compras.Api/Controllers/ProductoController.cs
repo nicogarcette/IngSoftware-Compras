@@ -15,6 +15,20 @@ namespace Compras.Api.Controllers
             _productoServices = productoService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] ProductoRequest value)
+        {
+            try
+            {
+                var response = await _productoServices.AddProducto(value);
+                return StatusCode(StatusCodes.Status201Created, response);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -25,7 +39,7 @@ namespace Compras.Api.Controllers
             }
             catch(Exception)
             {
-                return Ok();
+                return BadRequest();
             }
         }
 
@@ -43,21 +57,6 @@ namespace Compras.Api.Controllers
                 return BadRequest(ex.Message);
             }
 
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ProductoRequest value)
-        {
-            try
-            {
-                var response = await _productoServices.AddProducto(value);
-                return Ok(response);
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
         }
 
         [HttpPut]
