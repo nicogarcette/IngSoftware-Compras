@@ -1,0 +1,300 @@
+/*Tipo de fuente*/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    font-family: 'Montserrat', sans-serif;
+}
+
+section{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, a{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*____________________________________________________________________*/
+
+/*HEADER, BOTONERA. ubicación y colores*/
+
+header{
+    display: flex;
+}
+
+
+section{
+    background-color: #196F3D;
+}
+
+/* Contenedor del logo */
+.contenedor-logo-colegio {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente dentro del contenedor */
+    justify-content: center; /* Centra el logo horizontalmente */
+    height: 100px; /* Altura fija del contenedor */
+    padding: 10px; /* Ajusta el padding según sea necesario */
+    box-sizing: border-box; /* Incluye el padding en la altura total del contenedor */
+}
+
+/* Imagen del logo */
+.logoColegio {
+    max-height: 100%; /* Ajusta la altura de la imagen al 100% de la altura del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe el 100% de la altura del contenedor */
+    width: auto; /* Mantiene la proporción de la imagen */
+    margin-left: -30px;
+
+    width: 230px;       /*ancho logo*/
+    height: 180x;       /*alto logo*/
+
+    margin-left: -25px;
+
+    transition: filter 0.5s ease; /* Añadimos una transición suave para el cambio de color */
+}
+.logoColegio:hover{
+    filter:  invert(25%); /* Cambia el color de la imagen a saturado */
+}
+
+
+@media (max-width: 500px){
+    
+    .contenedor-logo-colegio .logoColegio{
+        width: 130px;
+        margin-left: -1px;
+
+    }
+
+    .div-REDES .logoRedes{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/*___________________________________________________________________________________________________________*/
+
+/*HEADER, BOTONERA*/
+
+
+
+.logoRedes{         /*tamaño de logos de redes*/
+    width: 55px;     
+    *height:70px;
+    *display: flex;
+    *justify-content: end;
+
+    margin-right: 40px;
+    margin-top: 50px;
+
+    transition: filter 0.1s ease; /* Añadimos una transición suave para el cambio de color */
+}
+.logoRedes:hover{
+    filter: saturate(250%); /* Cambia el color de la imagen a saturado */
+}
+
+.div-BotonesInfo {          /* Botones Nosotros-El colegio-NIveles */
+    text-align: center;
+    color: whitesmoke;    
+    *padding: 5px;  
+}
+
+.listado-Botones {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.button {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.link-boton{
+    color: white;         /*color de fuente*/
+    text-decoration: none; /*Linea debajo del link*/
+
+    padding: 15px 20px;
+}
+.link-boton:hover{
+    color: #333;
+}
+
+/*____________________________________________________________________________________________________________*/
+
+/*MENU DESPLEGABLE en botonera, PRUEBA*/
+nav {
+    *background-color: #333;
+    
+}
+
+.listado-Botones {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.listado-Botones li {
+    display: inline-block;
+    position: relative;
+}
+
+.listado-Botones li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+.listado-Botones li:hover {
+    *background-color: #555;
+}
+
+/* Estilos para el submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color:  #0b813c;
+    width: 200px;
+    left: 0;
+    top: 100%;
+    z-index: 1000; /* Alta prioridad */ /*El subMenu se mostrará por encima de todo el contenido*/
+}
+
+.submenu li {
+    display: flex;    
+
+}
+
+.listado-Botones li:hover .submenu {
+    display: block;
+}
+
+.espacios{
+    padding-top: 100px;
+    padding-bottom: 100px;  /*Aplican espacio arriba y abajo*/
+}
+/*________________________________________________________________________________*/
+/*NIVELES*/
+
+.tituto-NIVELES{
+    display: flex;
+    justify-content: center;
+}
+
+.p-NIVELES{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-card{
+    display: flex;
+    justify-content: center;
+}
+
+
+.contenedor-card .card {
+    border: 2px solid #196F3D;
+}
+.card{
+    margin: 15px;
+    transition: transform 0.3s ease-in-out;
+
+    
+}
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card-text{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/*____________________________________________________________________________________________________________*/
+/*SECCIÓN PRODUCTO*/
+
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 40px);
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
+
+
+/*_____________________________________________________________________________________________________________________*/
+
+/*Footer*/
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #196F3D;
+    color: whitesmoke;
+}
