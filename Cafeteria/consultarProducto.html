@@ -29,18 +29,18 @@
     <link rel="icon" href="img/logo/meior.png"> 
 
     <!--metas google-->
-    <meta name="description" content="Página Web Instituto Carlos Pellegrini Florencio Varela, Niveles">
-    <meta name="keywords"    content="Carlos Pellegrini, Colegio, Instituto, Florencio Varela, Niveles">
+    <meta name="description" content="">
+    <meta name="keywords"    content="">
     <meta name="author"      content="Luciano Melgar">
     <meta name="copyright"   content="LucianoMelgar2023">
     <meta name="robots"      content="index follow">
 
 	<!--metas facebook-->
-    <meta property="og:title"       content="Página Web Instituto Carlos Pellegrini Florencio Varela, Niveles">
-    <meta property="og:description" content="Página Web Instituto Carlos Pellegrini Florencio Varela, Niveles">
-    <meta property="og:type"        content="Página web informativa, Niveles">
-    <meta property="og:image"       content="img/logo-3-niveles.png" alt="logoPellegrini"> 
-    <meta property="og:url"         content="https://es-la.facebook.com/ColegioCarlosPellegriniFv/"> 
+    <meta property="og:title"       content="">
+    <meta property="og:description" content="">
+    <meta property="og:type"        content="">
+    <meta property="og:image"       content="" alt=""> 
+    <meta property="og:url"         content=""> 
 
 </head>
 
@@ -48,7 +48,7 @@
     <header>
 
         <div class="contenedor-logo-colegio">
-            <!--Logo colegio-->
+            <!--Logo-->
             <a href="index.html">
                 <img class="logoColegio" src="img/logo/meior.png" alt="logoCafeteria">
             </a>
@@ -99,11 +99,11 @@
 					<a class="link-boton" href="#">ORDEN DE COMPRA</a>
 	
 					<ul class="submenu">
-						<li class="boton-subMenu"><a class="link-boton" href="">REGISTRAR</a></li>
-						<li class="boton-subMenu"><a class="link-boton" href="">CONSULTAR</a></li>
-						<li class="boton-subMenu"><a class="link-boton" href="">MODIFICAR</a></li>
-						<li class="boton-subMenu"><a class="link-boton" href="">DAR DE BAJA</a></li>
-						<li class="boton-subMenu"><a class="link-boton" href="">LISTADO</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="registrarOrdenCompra.html">REGISTRAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="consultarOrdenCompra.html">CONSULTAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="modificarOrdenCompra.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaOrdenCompra.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoOrdenCompra.html">LISTADO</a></li>
 					</ul>
 				</li>
 
@@ -117,32 +117,26 @@
 <!--Formulario de consulta-->
 
     <div class="container">
-        <h1>Consulta de Producto</h1>
-        <br>
-
-        <form id="productForm">
+        <h1>Consultar Producto</h1>
+        <form id="consultProductForm">
             <label for="productId">ID del Producto:</label>
-            
             <input type="text" id="productId" name="productId" required>
-            <br>
-            <button type="button" onclick="consultProduct()">Consultar Producto</button>
+            <button type="button" onclick="consultProduct()">Consultar</button>
         </form>
-
-        <div id="productInfo" class="product-info">
-            <br>
+        <div id="productInfo" style="display:none;">
             <h2>Información del Producto</h2>
-            <br>
             <p><strong>Descripción:</strong> <span id="description"></span></p>
-            <p><strong>Precio de Venta:</strong> <span id="price"></span></p>
+            <p><strong>Precio:</strong> $<span id="price"></span></p>
             <p><strong>Stock Anual:</strong> <span id="annualStock"></span></p>
             <p><strong>Stock Mínimo:</strong> <span id="minimumStock"></span></p>
             <p><strong>Número de Lote:</strong> <span id="batchNumber"></span></p>
             <p><strong>Fecha de Vencimiento:</strong> <span id="expiryDate"></span></p>
             <p><strong>ID del Proveedor:</strong> <span id="supplierId"></span></p>
         </div>
-
+        <div id="errorMessage" style="display:none; color: red;">
+            <p>ID de Producto no existe en esta base de datos.</p>
+        </div>
     </div>
-
 
     <!--______________________________________________________________________________________________________________________________-->
 
