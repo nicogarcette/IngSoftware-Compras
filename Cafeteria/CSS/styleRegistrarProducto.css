@@ -1,0 +1,261 @@
+/*Tipo de fuente*/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    font-family: 'Montserrat', sans-serif;
+}
+
+section{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, a{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*____________________________________________________________________*/
+
+/*HEADER, BOTONERA. ubicación y colores*/
+
+header{
+    display: flex;
+}
+
+
+section{
+    background-color: #196F3D;
+}
+
+/* Contenedor del logo */
+.contenedor-logo-colegio {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente dentro del contenedor */
+    justify-content: center; /* Centra el logo horizontalmente */
+    height: 100px; /* Altura fija del contenedor */
+    padding: 10px; /* Ajusta el padding según sea necesario */
+    box-sizing: border-box; /* Incluye el padding en la altura total del contenedor */
+}
+
+/* Imagen del logo */
+.logoColegio {
+    max-height: 100%; /* Ajusta la altura de la imagen al 100% de la altura del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe el 100% de la altura del contenedor */
+    width: auto; /* Mantiene la proporción de la imagen */
+    margin-left: -30px;
+
+    width: 230px;       /*ancho logo*/
+    height: 180x;       /*alto logo*/
+
+    margin-left: -25px;
+
+    transition: filter 0.5s ease; /* Añadimos una transición suave para el cambio de color */
+}
+.logoColegio:hover{
+    filter:  invert(25%); /* Cambia el color de la imagen a saturado */
+}
+
+
+@media (max-width: 500px){
+    
+    .contenedor-logo-colegio .logoColegio{
+        width: 130px;
+        margin-left: -1px;
+
+    }
+
+    .div-REDES .logoRedes{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/*___________________________________________________________________________________________________________*/
+
+/*HEADER, BOTONERA*/
+
+
+
+.logoRedes{         /*tamaño de logos de redes*/
+    width: 55px;     
+    *height:70px;
+    *display: flex;
+    *justify-content: end;
+
+    margin-right: 40px;
+    margin-top: 50px;
+
+    transition: filter 0.1s ease; /* Añadimos una transición suave para el cambio de color */
+}
+.logoRedes:hover{
+    filter: saturate(250%); /* Cambia el color de la imagen a saturado */
+}
+
+.div-BotonesInfo {          /* Botones Nosotros-El colegio-NIveles */
+    text-align: center;
+    color: whitesmoke;    
+    *padding: 5px;  
+}
+
+.listado-Botones {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.button {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.link-boton{
+    color: white;         /*color de fuente*/
+    text-decoration: none; /*Linea debajo del link*/
+
+    padding: 15px 20px;
+}
+.link-boton:hover{
+    color: #333;
+}
+
+/*____________________________________________________________________________________________________________*/
+
+/*MENU DESPLEGABLE en botonera, PRUEBA*/
+nav {
+    *background-color: #333;
+    
+}
+
+.listado-Botones {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.listado-Botones li {
+    display: inline-block;
+    position: relative;
+}
+
+.listado-Botones li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+.listado-Botones li:hover {
+    *background-color: #555;
+}
+
+/* Estilos para el submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color:  #196F3D;
+    width: 200px;
+    left: 0;
+    top: 100%;
+}
+
+.submenu li {
+    display: flex;    
+
+}
+
+.listado-Botones li:hover .submenu {
+    display: block;
+}
+
+.espacios{
+    padding-top: 100px;
+    padding-bottom: 100px;  /*Aplican espacio arriba y abajo*/
+}
+/*________________________________________________________________________________*/
+/*Formulario de reg producto*/
+/*
+body {
+    *font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-row {
+    flex: 1 1 33%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+label, input, button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.product-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/*________________________________________________________________________________*/
+/*Footer*/
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #196F3D;
+    color: whitesmoke;
+}

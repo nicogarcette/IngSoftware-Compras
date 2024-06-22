@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Titulo Pestaña-->
+    <title>Consultar Productos</title>
+
+    <!--Linkeo de fuente, googleFonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
+
+    <!--Linkeo para CSS-->
+    <link rel="stylesheet" href="CSS/styleConsultarProducto.css">
+
+    <!--Linkeo para BootStrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!--Linkeo de script para usar FontAwesome-->
+    <script src="https://kit.fontawesome.com/7587738838.js" crossorigin="anonymous"></script>
+
+    <!-- Agregar el enlace de Font Awesome desde el CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+
+    <!--Icono pestaña-->
+    <link rel="icon" href="img/logo/meior.png"> 
+
+    <!--metas google-->
+    <meta name="description" content="Página Web Instituto Carlos Pellegrini Florencio Varela, Niveles">
+    <meta name="keywords"    content="Carlos Pellegrini, Colegio, Instituto, Florencio Varela, Niveles">
+    <meta name="author"      content="Luciano Melgar">
+    <meta name="copyright"   content="LucianoMelgar2023">
+    <meta name="robots"      content="index follow">
+
+	<!--metas facebook-->
+    <meta property="og:title"       content="Cafeteria El Mejor">
+    <meta property="og:description" content="Cafeteria El Mejor">
+    <meta property="og:type"        content="Página web informativa">
+    <meta property="og:image"       content="" alt=""> 
+    <meta property="og:url"         content="">  
+
+</head>
+
+<body>
+    <header>
+
+        <div class="contenedor-logo-colegio">
+            <!--Logo colegio-->
+            <a href="index.html">
+                <img class="logoColegio" src="img/logo/meior.png" alt="logoCafeteria">
+            </a>
+        </div>
+        
+		
+        <!--Botonera
+		<nav class="boton-REDES">
+
+		</nav>
+        -->
+
+    </header>
+
+    <!--BOTONERA DE OPCIONES-->
+    <section class="botones-inicio">		
+		<div class="div-BotonesInfo">
+
+			<ul class="listado-Botones">
+				
+                <!--PRODUCTOS-->
+				<li>
+					<a class="link-boton" href="#">PRODUCTOS</a>
+	
+					<ul class="submenu">
+						<li class="boton-subMenu"><a class="link-boton" href="registrarProducto.html">REGISTRAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="consultarProducto.html">CONSULTAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="modificarProducto.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaProducto.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoProducto.html">LISTADO</a></li>
+					</ul>
+				</li>
+
+                <!--PROVEEDORES-->
+				<li>
+					<a class="link-boton" href="#">PROVEEDORES</a>
+	
+					<ul class="submenu">
+						<li class="boton-subMenu"><a class="link-boton" href="registrarProveedor.html">REGISTRAR</a></li>
+						
+						<li class="boton-subMenu"><a class="link-boton" href="modificarProveedor.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaProveedor.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoProveedores.html">LISTADO</a></li>
+					</ul>
+				</li>
+
+                <li>
+					<a class="link-boton" href="#">ORDEN DE COMPRA</a>
+	
+					<ul class="submenu">
+						<li class="boton-subMenu"><a class="link-boton" href="registrarOrdenCompra.html">REGISTRAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="consultarOrdenCompra.html">CONSULTAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="modificarOrdenCompra.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaOrdenCompra.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoOrdenCompra.html">LISTADO</a></li>
+					</ul>
+				</li>
+
+			</ul>
+
+		</div>
+	</section>
+    
+<!--________________________________________________________________________________________-->
+    
+<!--Formulario de consulta-->
+
+
+    <div class="container">
+        <h1>Consulta de Proveedor</h1>
+        <br>
+
+        <form id="providerForm">
+            <label for="providerId">Ingresar ID del Proveedor:</label>
+            <input type="text" id="providerId" name="providerId" required>
+            <br>
+            <button type="button" onclick="consultProvider()">Buscar</button>
+        </form>
+
+        <div id="providerInfo" class="provider-info">
+            <br>
+            <h2>Información del Proveedor</h2>
+            <br>
+            <p><strong>Nombre:</strong> <span id="name"></span></p>
+            <p><strong>Apellido:</strong> <span id="lastname"></span></p>
+            <p><strong>Teléfono:</strong> <span id="phone"></span></p>
+            <p><strong>Dirección:</strong> <span id="address"></span></p>
+            <p><strong>CUIL:</strong> <span id="cuil"></span></p>
+            <p><strong>Nombre de la Empresa:</strong> <span id="companyName"></span></p>
+        </div>
+
+    </div>
+
+    <!--______________________________________________________________________________________________________________________________-->
+
+    <!-- Linkeo con BootStrap, JavaScript Bundle with Popper, codigo para agregar galeria de imagenes, siempre al final del BODY -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <!--Linkeo con JavaScript-->
+    <script src="JavaScript/ConsultarProveedor.js"></script>
+    
+
+</body>
+
+<br><br>
+
+<footer>
+	<p>© 2024 - Cafeteria El Mejor</p>
+</footer>
+
+</html>

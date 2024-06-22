@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Titulo Pestaña-->
+    <title>Registrar Proveedor</title>
+
+    <!--Linkeo de fuente, googleFonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
+
+    <!--Linkeo para CSS-->
+    <link rel="stylesheet" href="CSS/styleRegistrarProveedor.css">
+
+    <!--Linkeo para BootStrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!--Linkeo de script para usar FontAwesome-->
+    <script src="https://kit.fontawesome.com/7587738838.js" crossorigin="anonymous"></script>
+
+    <!-- Agregar el enlace de Font Awesome desde el CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+
+    <!--Icono pestaña-->
+    <link rel="icon" href="img/logo/meior.png"> 
+
+    <!--metas google-->
+    <meta name="description" content="Registrar Proveedor - Cafeteria El Mejor">
+    <meta name="keywords"    content="Registrar Proveedor - Cafeteria El Mejor">
+    <meta name="author"      content="Luciano Melgar">
+    <meta name="copyright"   content="LucianoMelgar2024">
+    <meta name="robots"      content="index follow">
+
+	<!--metas facebook-->
+    <meta property="og:title"       content="Registrar Proveedor - Cafeteria El Mejor">
+    <meta property="og:description" content="Registrar Proveedor - Cafeteria El Mejor">
+    <meta property="og:type"        content="Registrar Proveedor - Cafeteria El Mejor">
+    <meta property="og:image"       content="" alt=""> 
+    <meta property="og:url"         content=""> 
+
+</head>
+
+<body>
+    <header>
+
+        <div class="contenedor-logo-colegio">
+            <!--Logo colegio-->
+            <a href="index.html"><img class="logoColegio" src="img/logo/meior.png" alt="logoPellegrini"></a>
+        </div>
+        
+		
+        <!--Botonera REDES-->
+        <!--
+		<nav class="boton-REDES">
+
+		</nav> -->
+    
+    </header>
+
+    <!--BOTONERA DE OPCIONES-->
+    <section class="botones-inicio">		
+		<div class="div-BotonesInfo">
+
+			<ul class="listado-Botones">
+				
+				<li>
+					<a class="link-boton" href="#">PRODUCTOS</a>
+	
+					<ul class="submenu">
+						<li class="boton-subMenu"><a class="link-boton" href="registrarProducto.html">REGISTRAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="consultarProducto.html">CONSULTAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="modificarProducto.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaProducto.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoProducto.html">LISTADO</a></li>
+					</ul>
+				</li>
+
+
+				<li>
+					<a class="link-boton" href="#">PROVEEDORES</a>
+	
+					<ul class="submenu">
+						
+						<li class="boton-subMenu"><a class="link-boton" href="consultarProveedor.html">CONSULTAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="modificarProveedor.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaProveedor.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoProveedores.html">LISTADO</a></li>
+					</ul>
+				</li>
+
+                <li>
+					<a class="link-boton" href="#">ORDEN DE COMPRA</a>
+	
+					<ul class="submenu">
+						<li class="boton-subMenu"><a class="link-boton" href="registrarOrdenCompra.html">REGISTRAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="consultarOrdenCompra.html">CONSULTAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="modificarOrdenCompra.html">MODIFICAR</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="darBajaOrdenCompra.html">DAR DE BAJA</a></li>
+						<li class="boton-subMenu"><a class="link-boton" href="listadoOrdenCompra.html">LISTADO</a></li>
+					</ul>
+				</li>
+
+
+			</ul>
+
+		</div>
+	</section>
+    <br>
+<!--FORMULARIO REGISTRAR PROVEEDOR-->
+
+
+    <div class="container">
+        <h1>Registrar Proveedor</h1>
+        <br>
+        
+        <form id="providerForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br><br>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+            <br><br>
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+            <br><br>
+
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required>
+            <br><br>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+            <br><br>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+            <br><br>
+
+            <label for="cuil">CUIL:</label>
+            <input type="text" id="cuil" name="cuil" required>
+            <br><br>
+
+            <label for="empresa">Nombre de la Empresa:</label>
+            <input type="text" id="empresa" name="empresa" required>
+            <br><br>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+
+    
+        
+
+        
+
+
+
+        
+    <!--______________________________________________________________________________________________________________________________-->
+
+    <!-- Linkeo con BootStrap, JavaScript Bundle with Popper, codigo para agregar galeria de imagenes, siempre al final del BODY -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Linkeo con archivo JS -->
+    <script src="JavaScript/RegistrarProveedor.js"></script>
+
+</body>
+
+<footer>
+	<p>© 2024 - Cafeteria El Mejor</p>
+</footer>
+
+</html>

@@ -1,0 +1,547 @@
+/*Tipo de fuente*/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    font-family: 'Montserrat', sans-serif;
+}
+
+section{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, a{
+    font-family: 'Montserrat', sans-serif;
+}
+/*____________________________________________________________________*/
+
+/*HEADER, BOTONERA. ubicación y colores*/
+
+header{
+    display: flex;
+}
+
+.contenedor-logo-colegio{
+    width: 450%;    /*Tamaño del <a>(link que esta dentro del header)*/
+}
+
+.contenedor-logo-colegio {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente dentro del contenedor */
+    justify-content:flex-start; /* Centra el logo horizontalmente */
+    height: 100px; /* Altura fija del contenedor */
+    padding: 10px; /* Ajusta el padding según sea necesario */
+    box-sizing: border-box; /* Incluye el padding en la altura total del contenedor */
+}
+
+.logoColegio{           /*tamaño de logo colegio*/
+    width: 230px;       /*ancho logo*/
+    height: 180x;       /*alto logo*/
+
+    margin-left: -25px;
+
+    transition: filter 0.5s ease; /* Añadimos una transición suave para el cambio de color */
+}
+.logoColegio:hover{
+    filter:  invert(25%); /* Cambia el color de la imagen a saturado */
+}
+
+
+
+/*________________________________________________________________________________*/
+/*HEADER, BOTONERA*/
+/*BOTONERA DE OPCIONES*/
+
+.botones-inicio{
+
+}
+
+.div-BotonesInfo {          /* Botones DE OPCIONES */
+    text-align: center;
+    color: whitesmoke;    
+    background-color: #196F3D;
+
+    position: relative;         /* Asegurarse de que el menú tenga una posición establecida */
+    z-index: 1;                 /* Valor positivo para que el menú esté por encima de las imágenes */
+}
+
+.listado-Botones {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.button {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.link-boton{
+    color: white;         /*color de fuente*/
+    text-decoration: none; /*Linea debajo del link*/
+}
+.link-boton:hover{
+    color: #333;
+}
+
+/*Responsive*/
+@media (max-width: 500px){
+    .logoColegio{           /*tamaño de logo colegio*/
+        width: 130px;       /*ancho logo*/
+        height: 80x;       /*alto logo*/
+    
+        margin-left: -1px;
+    
+        transition: filter 0.5s ease; /* Añadimos una transición suave para el cambio de color */
+    }
+    .logoColegio:hover{
+        filter:  invert(25%); /* Cambia el color de la imagen a saturado */
+    }
+    
+    .logoRedes{         /*tamaño de logos de redes*/
+        width: 35px;     
+        height:35px;
+        display: flex;
+        justify-content: end;
+        margin-right: 40px;
+    
+        transition: filter 0.1s ease; /* Añadimos una transición suave para el cambio de color */
+    }
+    .logoRedes:hover{
+        filter: saturate(250%); /* Cambia el color de la imagen a saturado */
+    }
+    
+    #id-logo-wsp{
+        width: 50px;     
+        height:50px;
+    }
+    
+    .div-BotonesInfo {          /* Botones Nosotros-El colegio-NIveles */
+        text-align: center;
+        color: whitesmoke;    
+        background-color: #196F3D;
+    
+        position: relative;         /* Asegurarse de que el menú tenga una posición establecida */
+        z-index: 1;                 /* Valor positivo para que el menú esté por encima de las imágenes */
+    }
+    
+    .listado-Botones {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+        margin: 10px;
+    }
+    
+    .button {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    
+    .link-boton{
+        color: white;         /*color de fuente*/
+        text-decoration: none; /*Linea debajo del link*/
+    }
+    .link-boton:hover{
+        color: #333;
+    }
+
+    .boton-REDES{
+        width: 290px;
+        border-bottom: 50px;
+    }
+    .div-REDES{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/*_______________________________________________________________________________________________________________*/
+
+/*MENU DESPLEGABLE en botonera, PRUEBA*/
+nav {
+    *background-color: #333;
+    
+}
+
+.listado-Botones {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.listado-Botones li {
+    display: inline-block;
+    position: relative;
+}
+
+.listado-Botones li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+.listado-Botones li:hover {
+    *background-color: #555;
+}
+
+/* Estilos para el submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color:  #196F3D;
+    width: 200px;
+    left: 0;
+    top: 100%;
+}
+
+.submenu li {
+    display: flex;    
+
+}
+
+.listado-Botones li:hover .submenu {
+    display: block;
+}
+
+
+
+/*____________________________________________________________________________________________________________*/
+/*CARRUSEL*/
+
+.carousel-inner {
+    height:80vh; /* Altura adaptable */
+}
+
+.carousel-inner img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner {
+        height: 40vh; /* Ajuste de altura para tabletas y pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-inner {
+        height: 30vh; /* Ajuste de altura para celulares */
+    }
+}
+
+
+
+/*____________________________________________________________________________________________________________*/
+
+/*TITULO ENCIMA DE "NOSOTROS" (Instituto Carlos Pellegrini)*/
+.tituloColegio{
+    display: flex;
+    justify-content: center;
+}
+
+/*____________________________________________________________________________________________________________*/
+
+/*Nuestros CLASICOS*/
+
+.titulo-NOSOTROS{
+    display: flex;
+    justify-content: center;
+}
+
+.imgColegio-Nosotros{       /*poner entre texto*/
+    width: 20%;
+    height: 20%;
+}
+
+.descripcion-nosotros{      /*contenedor de texto en Nosotros*/
+    background-color: #729462;
+    display: flex;
+    text-align: justify;
+    align-items: center;
+
+    padding: 50px;
+    
+}
+@media (max-width: 500px){
+    .descripcion-nosotros{      /*contenedor de texto en Nosotros*/
+        background-color: #729462;
+        display: block;
+        text-align: justify;
+        align-items: center;
+        
+    }
+
+    .descripcion-nosotros p{
+        margin-left: 0%;      /*Separación de texto con img*/
+    }
+
+    .titulo-NOSOTROS{
+        display: flex;
+        justify-content: center;
+    }
+
+    .tituloColegio{
+        *display: flex;
+        justify-content: center;
+    }
+    
+    .imgColegio-Nosotros{       /*poner entre texto*/
+        width: 100%;
+        height: 20%;
+        margin-left: 7px;
+    }
+
+
+    /*divs de productos clasicos*/
+    .producto-clasico{
+        background-color: black;
+    }
+
+}
+
+.descripcion-nosotros p{
+    margin-left: 20px;      /*Separación de texto con img*/
+}
+
+
+.imgColegio-Nosotros{       /*ubicación img, logo colegio*/
+    margin-left: -50px;
+    
+}
+
+.p-nosotros{
+    font-family: 'Montserrat', sans-serif;
+
+    
+}
+
+/*____________________________________________________________________________________________________________*/
+
+/*NUESTROS CLASICOS*/
+
+.seccion-NIVELES{
+    background-color: #196F3D;
+}
+
+.tituto-NIVELES{
+    display: flex;
+    justify-content: center;
+}
+
+.p-NIVELES{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-card{
+    display: flex;
+    justify-content: center;
+}
+
+
+.contenedor-card .card {
+    border: 2px solid #196F3D;
+}
+.card{
+    margin: 15px;
+    transition: transform 0.3s ease-in-out;
+
+    
+}
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card-text{
+    display: flex;
+    justify-content: center;
+}
+
+/*_______________________________________________________________________________________________________________*/
+/*UBICACIÓN, MAPAS*/
+
+.titulo-UBICACION{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-mapa-primaria, .contenedor-mapa-secundaria{
+    padding: 20px;
+
+    background-color: #729462;
+
+    display: flex;      /*deja los contenedores <div> uno al lado de otro, con inline-block queda desprolijo*/
+    
+}
+
+.descripcion-mapa{
+    background-color: #a0c38e;
+
+    margin: 30px;
+
+    border-radius: 30px;
+
+    padding: 20px;
+}
+
+.descripcion-mapa h4, .descripcion-mapa p{
+    padding: 20px;
+}
+
+.mapa{
+    border-radius: 20px;
+}
+
+@media (max-width: 500px){
+    .mapa{
+        width: 100%;
+        *height: 100px;
+    }
+
+    .contenedor-mapa-primaria, .contenedor-mapa-secundaria{
+        padding: 20px;
+        background-color: #729462;
+        display: block;
+    
+
+        
+    }
+}
+
+/*_____________________________________________________________________________________________________________________*/
+/*CAJA PARA MAILS*/
+
+.div-para-mails{
+    *background-color: green;
+
+    width: 50%;
+    padding: 20px;
+
+    margin-left: 100px;
+}
+
+
+.boton-enviar{
+    *margin-left: 390px ;
+    margin-left:70% ;
+    border-radius: 10px;
+}
+.boton-enviar:hover{
+    background-color: #196F3D;
+    
+}
+
+.tituloCaja-mensaje{
+    padding-bottom: 5px;
+    width: 154px;
+}
+
+.caja-mensaje{
+    width: 290px;
+    border-radius: 10px;
+    border: 1.5px solid
+}
+.caja-mensaje:hover{
+    border: 1.5px solid #196F3D;
+    
+}
+
+.caja-email{
+    width: 290px;
+    border-radius: 10px;
+    border: 1.5px solid
+}
+.caja-email:hover{
+    border: 1.5px solid #196F3D;
+}
+
+.formulario-mails{
+    
+}
+
+/*_____________________________________________________________________________________________________________________*/
+/*BANNER INSCRIPCIÓN*/
+
+.banner-inscripcion{
+    background-color: #729462;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: auto;           /*centra el contenedor div, una vez que se achica el ancho de estev*/
+
+    padding: 40px;
+    max-width: 85%;
+
+    border-radius: 10px;
+}
+
+@media (max-width: 500px){
+    .banner-inscripcion h1{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+/*_____________________________________________________________________________________________________________________*/
+
+/*BANNER CON NOMBRE COLEGIO, VERDE*/
+
+.banner-nombre{
+
+    width: 750px;
+    height: 170px;
+
+    margin-top: 65px;
+    margin-right: 100px;
+
+    *float: right;
+}
+
+
+.contenedor-mails-y-banner{
+    display: flex;
+}
+
+@media (max-width: 500px){
+    
+    .banner-nombre{
+        display: none;
+    }
+
+
+
+    .div-para-mails{
+        margin-left: 0px;
+    }
+
+    .boton-enviar{
+        margin-left: 165%;
+    }
+}
+
+/*_____________________________________________________________________________________________________________________*/
+
+/*Footer*/
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #196F3D;
+    color: whitesmoke;
+}
+@media (max-width: 500px){
+    p{
+        text-align: center;
+    }
+}
