@@ -35,31 +35,30 @@ document.addEventListener('DOMContentLoaded', () => {
     window.consultProduct = function() {
         const productId = document.getElementById('productId').value;
 
-        // Simulación de una solicitud al backend
-        fetch(`YOUR_BACKEND_URL/products/${productId}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                displayProduct(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Intentar buscar localmente si la solicitud falla
-                const product = products.find(p => p.id == productId);
-                if (product) {
-                    displayProduct(product);
-                } else {
-                    showError();
-                }
+        let url = `https://localhost:7241/api/Producto/${productId}`
+
+        console.log(url);
+
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            displayProduct(data);
+        })
+        .catch((error) => {
+            
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Producto inexistente.",
+                showConfirmButton: false,
+                timer: 1500
             });
-    };
+        });
+        };
 
     function displayProduct(product) {
-        document.getElementById('description').textContent = product.description;
+        document.getElementById('description').textContent = product.descripcion;
         document.getElementById('price').textContent = product.price;
         document.getElementById('annualStock').textContent = product.annualStock;
         document.getElementById('minimumStock').textContent = product.minimumStock;

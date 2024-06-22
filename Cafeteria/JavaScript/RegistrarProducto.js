@@ -5,10 +5,7 @@ document.getElementById('registerProductForm').addEventListener('submit', functi
     const formObject = Object.fromEntries(formData.entries());
     const jsonData = JSON.stringify(formObject);
 
-    console.log(jsonData); // Puedes verificar los datos JSON en la consola
-
-    // Aquí enviarías los datos al backend
-    fetch('YOUR_BACKEND_URL/register-product', {
+    fetch('https://localhost:7241/api/Producto', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,18 +14,20 @@ document.getElementById('registerProductForm').addEventListener('submit', functi
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Success:', data);
-        showMessage('El producto ha sido registrado en la base de datos.');
-        addProductToList(formObject);
+
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Producto agregado!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+
     })
     .catch((error) => {
         console.error('Error:', error);
         showMessage('Error al registrar el producto. Por favor, inténtelo de nuevo.');
     });
-
-    // Mostrar producto en pantalla localmente
-    showMessage('El producto ha sido registrado localmente.');
-    addProductToList(formObject);
 });
 
 function showMessage(message) {
@@ -36,16 +35,25 @@ function showMessage(message) {
     messageDiv.innerText = message;
 }
 
-function addProductToList(product) {
-    const productList = document.getElementById('productList');
-    const productItem = document.createElement('div');
-    productItem.classList.add('product-item');
-    productItem.innerHTML = `
-        <p><strong>Código:</strong> ${product.productCode}</p>
-        <p><strong>Nombre:</strong> ${product.productName}</p>
-        <p><strong>Descripción:</strong> ${product.productDescription}</p>
-        <p><strong>Stock:</strong> ${product.stock}</p>
-        <p><strong>Precio:</strong> $${product.price}</p>
-    `;
-    productList.appendChild(productItem);
+const cargarProveedores =()=>{
+    fetch(' https://localhost:7241/api/Proveedor')
+    .then(response => response.json())
+    .then(data => {
+        const select = document.getElementById('proveedor');
+            data.forEach(proveedor => {
+                const option = document.createElement('option');
+                option.value = proveedor.id;  
+                option.textContent = proveedor.nombre; 
+                select.appendChild(option);
+            });
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
+
+cargarProveedores();
+
+
+
+

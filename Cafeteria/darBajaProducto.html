@@ -42,6 +42,10 @@
     <meta property="og:image"       content="" alt="logoPellegrini"> 
     <meta property="og:url"         content=""> 
 
+
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -125,11 +129,18 @@
 
             <form id="deleteProductForm">
 
-                <label for="productId">ID del Producto:</label>
+                <!-- <label for="productId">ID del Producto:</label>
                 
                 <input type="text" id="productId" name="productId" required>
-                <br>
-    
+                <br> -->
+
+                <div class="form-row">
+                    <label for="opciones">Elige un producto:</label>
+                    <select id="idProducto" name="idProducto">
+                        <option value="" disabled selected>Producto</option>
+                    </select>
+                </div>
+                
                 <button type="submit">Dar de Baja</button>
             </form>
 

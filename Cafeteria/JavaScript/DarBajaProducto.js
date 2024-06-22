@@ -1,28 +1,55 @@
 /* deleteProduct.js */
 document.getElementById('deleteProductForm').addEventListener('submit', function(event) {
     event.preventDefault();
+  
+    const productId = document.getElementById('idProducto').value;
 
-    const formData = new FormData(event.target);
-    const formObject = Object.fromEntries(formData.entries());
-    const jsonData = JSON.stringify(formObject);
+    deleteProducto(productId);
+});
 
-    console.log(jsonData); // Puedes verificar los datos JSON en la consola
+const deleteProducto = async (productId) =>{
 
-    // Aquí enviarías los datos al backend
-    fetch('YOUR_BACKEND_URL/delete-product', {
-        method: 'DELETE', // Método DELETE para eliminar
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: jsonData
+    await fetch(`https://localhost:7241/api/Producto/${productId}`, {
+        method: 'DELETE'
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Success:', data);
-        // Aquí puedes manejar la respuesta del servidor
+
+        console.log("askdhjaksjhdkjashd");
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Producto eliminado!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    })
+    .catch((error) => {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Producto eliminado!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    });
+}
+
+const cargarProducto =()=>{
+    fetch(' https://localhost:7241/api/Producto')
+    .then(response => response.json())
+    .then(data => {
+        const select = document.getElementById('idProducto');
+            data.forEach(producto => {
+                const option = document.createElement('option');
+                option.value = producto.id;  
+                option.textContent = producto.descripcion; 
+                select.appendChild(option);
+            });
     })
     .catch((error) => {
         console.error('Error:', error);
-        // Aquí puedes manejar los errores
     });
-});
+}
+
+cargarProducto();
