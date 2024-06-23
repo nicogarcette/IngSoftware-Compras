@@ -23,6 +23,10 @@ document.getElementById('registerProductForm').addEventListener('submit', functi
             timer: 1500
         });
 
+        setTimeout(() => {
+            document.getElementById("registerProductForm").reset();
+        }, 1500);
+
     })
     .catch((error) => {
         console.error('Error:', error);

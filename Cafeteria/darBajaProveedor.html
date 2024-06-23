@@ -42,6 +42,10 @@
     <meta property="og:image"       content="" alt=""> 
     <meta property="og:url"         content=""> 
 
+    
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -118,12 +122,19 @@
 
     <div class="container">
         <h1>Baja de Proveedor</h1>
-        <form id="deleteProviderForm">
-            <label for="providerId">ID del Proveedor:</label>
-            <input type="text" id="providerId" name="providerId" required>
+    
+        <div>
+            
+            <div class="form-row">
+                <label for="opciones">Elige un proveedor:</label>
+                <select id="idProveedor" name="idProveedor" class="form-select">
+                    <option value="" disabled selected>Proveedor</option>
+                </select>
+            </div>
             <br>
-            <button type="button" onclick="consultProvider()">Buscar</button>
-        </form>
+            <button id="deleteProviderForm" type="button">Dar de baja</button>
+        </div>
+       
 
         <div id="providerInfo" class="provider-info" style="display: none;">
             <h2>Información del Proveedor</h2>

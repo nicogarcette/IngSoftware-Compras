@@ -42,6 +42,9 @@
     <meta property="og:image"       content="img/logo-3-niveles.png" alt="logoPellegrini"> 
     <meta property="og:url"         content="https://es-la.facebook.com/ColegioCarlosPellegriniFv/"> 
 
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -53,14 +56,7 @@
                 <img class="logoColegio" src="img/logo/meior.png" alt="logoCafeteria">
             </a>
         </div>
-        
-		
-        <!--Botonera
-		<nav class="boton-REDES">
-
-		</nav>
-        -->
-
+    
     </header>
 
     <!--BOTONERA DE OPCIONES-->
@@ -117,51 +113,83 @@
 <!--Formulario de REGISTRAR PRODUCTO-->
 
 
+
+
+
     <div class="container">
         <h1>Registrar Orden de Compra</h1>
         <form id="purchaseOrderForm">
-            <label for="companyName">Nombre de la Empresa:</label>
-            <input type="text" id="companyName" name="companyName" required>
+        
+
+            <label for="subtotal">Descripcion:</label>
+            <input type="text" id="descripcion" name="descripcion">
             <br><br>
 
-            <label for="companyAddress">Razón, Domicilio Empresa:</label>
-            <input type="text" id="companyAddress" name="companyAddress" required>
+            <label for="subtotal">Fecha:</label>
+            <input type="date" id="fecha" name="fecha">
             <br><br>
 
-            <label for="companyPhone">Teléfono Empresa:</label>
-            <input type="tel" id="companyPhone" name="companyPhone" required>
-            <br><br>
+            <div class="form-row">
+                <label for="opciones">Elige un proveedor:</label>
+                <select id="proveedor" name="idProveedor" class="form-select" onchange="activarBoton()">
+                    <option value="" disabled selected>proveedor</option>
+                </select>
+            </div>
 
-            <button type="button" onclick="selectProvider()">Seleccionar Proveedor</button>
-            <div id="selectedProvider"></div>
-            <br><br>
-
-            <button type="button" onclick="selectProduct()">Seleccionar Producto</button>
+            <button id="verProductos" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>Agregar Producto</button>
             <div id="selectedProduct"></div>
             <br><br>
 
-            <label for="quantity">Cantidad:</label>
-            <input type="number" id="quantity" name="quantity" min="1" required>
-            <br><br>
+            <div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Producto</th>
+                          <th scope="col">Cantidad</th>
+                          <th scope="col">Precio</th>
+                        </tr>
+                      </thead>
+                      <tbody id="productosTableBody">
+                      </tbody>
+                </table>
+            </div>
 
-            <label for="unitPrice">Precio Unitario:</label>
-            <input type="text" id="unitPrice" name="unitPrice" readonly>
-            <br><br>
-
-            <label for="subtotal">SubTotal:</label>
-            <input type="text" id="subtotal" name="subtotal" readonly>
-            <br><br>
-
-            <label for="total">TOTAL:</label>
-            <input type="text" id="total" name="total" readonly>
-            <br><br>
-
-            <button type="button" onclick="addProduct()">Añadir Otro Producto</button>
-            <br><br>
-            <button type="submit">Finalizar Orden de Compra</button>
+            <button type="submit">Generar Orden de Compra</button>
         </form>
+
+        
     </div>
 
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Productos</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="form-group">
+                    <label for="producto">Seleccione un producto</label>
+                    <select id="producto" class="form-control"  onchange="mostrarCampoCantidad()">
+                        <option value="">Seleccione un producto</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3" id="cantidadContainer" style="display: none;">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" class="form-control" placeholder="Ingrese la cantidad">
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button  id="btnAgregarProducto" type="button" data-bs-dismiss="modal" class="btn btn-success mt-3" onclick="agregarProducto()" style="display: none;">Agregar Producto</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+            </div>
+          </div>
+        </div>
+      </div>
 
 <!--  ______________________________________________________________________________________________________________________________-->
 

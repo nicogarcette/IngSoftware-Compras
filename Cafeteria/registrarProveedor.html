@@ -41,7 +41,9 @@
     <meta property="og:type"        content="Registrar Proveedor - Cafeteria El Mejor">
     <meta property="og:image"       content="" alt=""> 
     <meta property="og:url"         content=""> 
-
+    
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -111,58 +113,41 @@
 	</section>
     <br>
 <!--FORMULARIO REGISTRAR PROVEEDOR-->
-
-
     <div class="container">
         <h1>Registrar Proveedor</h1>
         <br>
-        
         <form id="providerForm">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <br><br>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-            <br><br>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" required>
+            </div>
 
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-            <br><br>
-
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" required>
-            <br><br>
-
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" required>
-            <br><br>
-
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono" required>
-            <br><br>
-
-            <label for="cuil">CUIL:</label>
-            <input type="text" id="cuil" name="cuil" required>
-            <br><br>
-
-            <label for="empresa">Nombre de la Empresa:</label>
-            <input type="text" id="empresa" name="empresa" required>
-            <br><br>
+            <div class="form-group">
+                <label for="cuil">CUIL:</label>
+                <input type="text" id="cuil" name="cuil" required>
+            </div>
+            <div class="form-group">
+                <label for="empresa">Nombre de la Empresa:</label>
+                <input type="text" id="empresa" name="nombreEmpresa" required>
+            </div>
 
             <button type="submit">Registrar</button>
         </form>
     </div>
-
-
-    
-        
-
-        
-
-
-
-        
+     
     <!--______________________________________________________________________________________________________________________________-->
 
     <!-- Linkeo con BootStrap, JavaScript Bundle with Popper, codigo para agregar galeria de imagenes, siempre al final del BODY -->
@@ -172,6 +157,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <!-- Linkeo con archivo JS -->
     <script src="JavaScript/RegistrarProveedor.js"></script>

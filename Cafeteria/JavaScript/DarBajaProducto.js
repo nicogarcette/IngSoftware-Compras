@@ -15,7 +15,6 @@ const deleteProducto = async (productId) =>{
     .then(response => response.json())
     .then(data => {
 
-        console.log("askdhjaksjhdkjashd");
         Swal.fire({
             position: "top-end",
             icon: "success",
@@ -36,7 +35,7 @@ const deleteProducto = async (productId) =>{
 }
 
 const cargarProducto =()=>{
-    fetch(' https://localhost:7241/api/Producto')
+    fetch('https://localhost:7241/api/Producto')
     .then(response => response.json())
     .then(data => {
         const select = document.getElementById('idProducto');

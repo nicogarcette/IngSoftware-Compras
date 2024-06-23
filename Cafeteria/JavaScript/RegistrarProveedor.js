@@ -6,10 +6,7 @@ document.getElementById('providerForm').addEventListener('submit', function(even
     const formObject = Object.fromEntries(formData.entries());
     const jsonData = JSON.stringify(formObject);
 
-    console.log(jsonData); // Puedes verificar los datos JSON en la consola
-
-    // Aquí enviarías los datos al backend
-    fetch('YOUR_BACKEND_URL', {
+    fetch('https://localhost:7241/api/Proveedor', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -18,11 +15,19 @@ document.getElementById('providerForm').addEventListener('submit', function(even
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Success:', data);
-        // Aquí puedes manejar la respuesta del servidor
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Proveedor agregado!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+
+        setTimeout(() => {
+            document.getElementById("providerForm").reset();
+        }, 1500);
     })
     .catch((error) => {
         console.error('Error:', error);
-        // Aquí puedes manejar los errores
     });
 });

@@ -74,6 +74,7 @@ namespace Compras.Aplication.Services
                 StockMinimo = entidad.StockMinimo,
                 NumeroLote = entidad.NumeroLote,
                 FechaVencimiento = entidad.FechaVencimiento,
+                IdProveedor = entidad.IdProveedor
             }).ToList();
 
             return ListResponse;

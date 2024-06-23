@@ -37,8 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let url = `https://localhost:7241/api/Producto/${productId}`
 
-        console.log(url);
-
         fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -59,12 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayProduct(product) {
         document.getElementById('description').textContent = product.descripcion;
-        document.getElementById('price').textContent = product.price;
-        document.getElementById('annualStock').textContent = product.annualStock;
-        document.getElementById('minimumStock').textContent = product.minimumStock;
-        document.getElementById('batchNumber').textContent = product.batchNumber;
-        document.getElementById('expiryDate').textContent = product.expiryDate;
-        document.getElementById('supplierId').textContent = product.supplierId;
+        document.getElementById('price').textContent = product.precioVenta;
+        document.getElementById('annualStock').textContent = product.stockActual;
+        document.getElementById('minimumStock').textContent = product.stockMinimo;
+        document.getElementById('batchNumber').textContent = product.numeroLote;
+        document.getElementById('expiryDate').textContent = formatFecha(product.fechaVencimiento);
         document.getElementById('productInfo').style.display = 'block';
         document.getElementById('errorMessage').style.display = 'none';
     }
@@ -74,3 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('errorMessage').style.display = 'block';
     }
 });
+
+function formatFecha(fechaISO) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const fecha = new Date(fechaISO);
+    return fecha.toLocaleDateString('es-ES', options);
+}

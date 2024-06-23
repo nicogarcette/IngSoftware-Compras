@@ -1,7 +1,8 @@
 function consultProvider() {
     const providerId = document.getElementById('providerId').value;
 
-    fetch(`YOUR_BACKEND_URL/provider/${providerId}`)
+    let url = `https://localhost:7241/api/Proveedor/${providerId}`
+    fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -10,12 +11,12 @@ function consultProvider() {
         })
         .then(data => {
             if (data) {
-                document.getElementById('name').innerText = data.name;
-                document.getElementById('lastname').innerText = data.lastname;
-                document.getElementById('phone').innerText = data.phone;
-                document.getElementById('address').innerText = data.address;
+                document.getElementById('name').innerText = data.nombre;
+                document.getElementById('lastname').innerText = data.apellido;
+                document.getElementById('phone').innerText = data.telefono;
+                document.getElementById('address').innerText = data.direccion;
                 document.getElementById('cuil').innerText = data.cuil;
-                document.getElementById('companyName').innerText = data.companyName;
+                document.getElementById('companyName').innerText = data.nombreEmpresa;
                 document.getElementById('providerInfo').style.display = 'block';
             } else {
                 alert('El proveedor no existe.');
@@ -26,6 +27,7 @@ function consultProvider() {
             alert('Error al consultar el proveedor. Por favor, inténtelo de nuevo.');
         });
 }
+
 
 // Simulación de datos
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,21 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    window.consultProvider = function() {
-        const providerId = parseInt(document.getElementById('providerId').value);
+    consultProvider();
 
-        const provider = providers.find(p => p.id === providerId);
+    // window.consultProvider = function() {
+    //     const providerId = parseInt(document.getElementById('providerId').value);
 
-        if (provider) {
-            document.getElementById('name').innerText = provider.name;
-            document.getElementById('lastname').innerText = provider.lastname;
-            document.getElementById('phone').innerText = provider.phone;
-            document.getElementById('address').innerText = provider.address;
-            document.getElementById('cuil').innerText = provider.cuil;
-            document.getElementById('companyName').innerText = provider.companyName;
-            document.getElementById('providerInfo').style.display = 'block';
-        } else {
-            alert('El proveedor no existe.');
-        }
-    };
+    //     const provider = providers.find(p => p.id === providerId);
+
+    //     if (provider) {
+    //         document.getElementById('name').innerText = provider.name;
+    //         document.getElementById('lastname').innerText = provider.lastname;
+    //         document.getElementById('phone').innerText = provider.phone;
+    //         document.getElementById('address').innerText = provider.address;
+    //         document.getElementById('cuil').innerText = provider.cuil;
+    //         document.getElementById('companyName').innerText = provider.companyName;
+    //         document.getElementById('providerInfo').style.display = 'block';
+    //     } else {
+    //         alert('El proveedor no existe.');
+    //     }
+    // };
 });
