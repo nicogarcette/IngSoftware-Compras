@@ -64,15 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
             //   }
             products.forEach(product => {
                 const card = document.createElement('div');
-                card.className = 'card';
+                card.className = 'card CardCafe';
 
                 card.innerHTML = `
-                    <img src="img/productos/granos.jpg" alt="${product.name}">
+                    <img class="imgCard" src="img/productos/granos.jpg" alt="${product.name}">
                     <h2>${product.descripcion}</h2>
-                    <p>Precio: $${product.precioVenta.toFixed(2)}</p>
-                    <p>Stock actual: ${product.stockActual}</p>
-                    <p>Stock mínimo: ${product.stockMinimo}</p>
-                    <p>Fecha Vencimiento: ${formatFecha(product.fechaVencimiento)}</p>
+                    <div>
+                        <p>Precio: $${product.precioVenta.toFixed(2)}</p>
+                        <p>Stock actual: ${product.stockActual} </p>
+                        <p>Stock mínimo: ${product.stockMinimo}</p>
+                        <p>Vencimiento: ${formatFecha(product.fechaVencimiento)}</p>
+                    </div>
                 `;
                 productsList.appendChild(card);
             });

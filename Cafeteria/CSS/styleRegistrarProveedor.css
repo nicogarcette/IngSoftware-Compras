@@ -184,6 +184,11 @@ nav {
     border-radius: 10px;
 }
 
+.margin
+{
+    margin: 3rem 0 10.9rem 0;
+}
+
 h1 {
     text-align: center;
     color: #2f8f2f;

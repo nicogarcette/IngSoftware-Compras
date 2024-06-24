@@ -41,7 +41,9 @@
     <meta property="og:type"        content="">
     <meta property="og:image"       content="" alt=""> 
     <meta property="og:url"         content=""> 
-
+  
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -54,13 +56,6 @@
             </a>
         </div>
         
-		
-        <!--Botonera
-		<nav class="boton-REDES">
-
-		</nav>
-        -->
-
     </header>
 
     <!--BOTONERA DE OPCIONES-->
@@ -116,40 +111,58 @@
     
 <!--Formulario de MODIFICACIÓN-->
 
-    <div class="container">
+    <div class="container margin">
         <h1>Modificar Proveedor</h1>
         <br>
         <form id="modifyProviderForm">
-            <label for="providerId">ID del Proveedor:</label>
-            <input type="text" id="providerId" name="providerId" required>
-            <br><br>
 
-            <label for="providerName">Nombre:</label>
-            <input type="text" id="providerName" name="providerName" required>
-            <br><br>
-
-            <label for="providerLastname">Apellido:</label>
-            <input type="text" id="providerLastname" name="providerLastname" required>
-            <br><br>
-
-            <label for="providerPhone">Teléfono:</label>
-            <input type="text" id="providerPhone" name="providerPhone" required>
-            <br><br>
-
-            <label for="providerAddress">Dirección:</label>
-            <input type="text" id="providerAddress" name="providerAddress" required>
-            <br><br>
-
-            <label for="providerCuil">CUIL:</label>
-            <input type="text" id="providerCuil" name="providerCuil" required>
-            <br><br>
-
-            <label for="providerCompanyName">Nombre de la Empresa:</label>
-            <input type="text" id="providerCompanyName" name="providerCompanyName" required>
-            <br><br>
-
-            <button type="button" onclick="modifyProvider()">Modificar Proveedor</button>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="idProveedor">Elige un proveedor:</label>
+                    <select id="idProveedor" name="idProveedor" class="form-select">
+                        <option value="" disabled selected>Proveedor</option>
+                    </select>
+                </div>
+            </div>
+        
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="providerName">Nombre:</label>
+                    <input type="text" id="providerName" name="providerName" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="providerLastname">Apellido:</label>
+                    <input type="text" id="providerLastname" name="providerLastname" class="form-control" required>
+                </div>
+            </div>
+        
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="providerPhone">Teléfono:</label>
+                    <input type="text" id="providerPhone" name="providerPhone" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="providerAddress">Dirección:</label>
+                    <input type="text" id="providerAddress" name="providerAddress" class="form-control" required>
+                </div>
+            </div>
+        
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="providerCuil">CUIL:</label>
+                    <input type="text" id="providerCuil" name="providerCuil" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="providerCompanyName">Nombre de la Empresa:</label>
+                    <input type="text" id="providerCompanyName" name="providerCompanyName" class="form-control" required>
+                </div>
+            </div>
+        
         </form>
+
+        <div class="text-center">
+            <button id="btnModificarProveedor" type="button" class="btn btn-success">Modificar Proveedor</button>
+        </div>
     </div>
 
 <!--  ______________________________________________________________________________________________________________________________-->

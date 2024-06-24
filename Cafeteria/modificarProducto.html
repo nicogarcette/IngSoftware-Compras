@@ -41,6 +41,10 @@
     <meta property="og:type"        content="">
     <meta property="og:image"       content="" alt=""> 
     <meta property="og:url"         content=""> 
+
+
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -52,13 +56,6 @@
                 <img class="logoColegio" src="img/logo/meior.png" alt="logoCafeteria">
             </a>
         </div>
-        
-		
-        <!--Botonera
-		<nav class="boton-REDES">
-
-		</nav>
-        -->
 
     </header>
 
@@ -114,44 +111,64 @@
     
 <!--Formulario de MODIFICACIÓN-->
 
-    <div class="container">
+    <div class="container margin">
         <h1>Modificar Producto</h1>
         <br>
         <form id="modifyForm">
-            <label for="productId">ID del Producto:</label>
-            <input type="text" id="productId" name="productId" required>
-            <br><br>
 
-            <label for="productDescription">Descripción:</label>
-            <textarea id="productDescription" name="productDescription" required></textarea>
-            <br><br>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label for="opciones">Elige un producto:</label>
+                    <select id="idProducto" name="idProducto" class="form-select">
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="productDescription">Nombre:</label>
+                    <input id="productDescription" name="productDescription" class="form-control" required></input>
+                </div>
+            </div>
 
-            <label for="productPrice">Precio de Venta:</label>
-            <input type="number" step="0.01" id="productPrice" name="productPrice" required>
-            <br><br>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label for="productPrice">Precio de Venta:</label>
+                    <input type="number" step="0.01" id="productPrice" name="productPrice" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="annualStock">Stock Actual:</label>
+                    <input type="number" id="annualStock" name="annualStock" class="form-control" required>
+                </div>
+            </div>
 
-            <label for="annualStock">Stock Anual:</label>
-            <input type="number" id="annualStock" name="annualStock" required>
-            <br><br>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label for="minimumStock">Stock Mínimo:</label>
+                    <input type="number" id="minimumStock" name="minimumStock" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="batchNumber">Número de Lote:</label>
+                    <input type="text" id="batchNumber" name="batchNumber" class="form-control" required>
+                </div>
+            </div>
 
-            <label for="minimumStock">Stock Mínimo:</label>
-            <input type="number" id="minimumStock" name="minimumStock" required>
-            <br><br>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label for="expiryDate">Fecha de Vencimiento:</label>
+                    <input type="date" id="expiryDate" name="expiryDate" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="opciones">Elige un proveedor:</label>
+                    <select id="idProveedor" name="idProveedor" class="form-select">
+                        <option value="" disabled selected>Proveedor</option>
+                    </select>
+                </div>
+            </div>
 
-            <label for="batchNumber">Número de Lote:</label>
-            <input type="text" id="batchNumber" name="batchNumber" required>
-            <br><br>
-
-            <label for="expiryDate">Fecha de Vencimiento:</label>
-            <input type="date" id="expiryDate" name="expiryDate" required>
-            <br><br>
-
-            <label for="supplierId">ID del Proveedor:</label>
-            <input type="text" id="supplierId" name="supplierId" required>
-            <br><br>
-
-            <button type="button" onclick="modifyProduct()">Modificar Producto</button>
         </form>
+       
+        <div class="text-center">
+            <button id="btnAddProduct" class="btn btn-success"  type="button">Modificar Producto</button>
+        </div>
+
     </div>
     
 <!--  ______________________________________________________________________________________________________________________________-->

@@ -123,6 +123,8 @@ section{
 /*____________________________________________________________________________________________________________*/
 
 /*MENU DESPLEGABLE en botonera, PRUEBA*/
+
+
 nav {
     *background-color: #333;
     
@@ -175,17 +177,6 @@ nav {
 }
 /*________________________________________________________________________________*/
 /*Formulario de reg producto*/
-/*
-body {
-    *font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-} */
 
 .container {
     background-color: #fff;
@@ -194,6 +185,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
+}
+
+.margin
+{
+    margin: 3rem 0 0rem 0;
 }
 
 h1 {
@@ -249,6 +245,27 @@ button:hover {
     padding: 10px 0;
 }
 
+
+
+#registerProductForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+#registerProductForm label {
+    grid-column: span 2;
+}
+#registerProductForm input {
+    width: 100%;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.full-width {
+    grid-column: span 2;
+}
+
 /*________________________________________________________________________________*/
 /*Footer*/
 
@@ -259,3 +276,4 @@ footer{
     background-color: #196F3D;
     color: whitesmoke;
 }
+

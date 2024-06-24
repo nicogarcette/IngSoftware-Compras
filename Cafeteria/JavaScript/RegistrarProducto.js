@@ -1,16 +1,22 @@
-document.getElementById('registerProductForm').addEventListener('submit', function(event) {
+document.getElementById('addProducto').addEventListener('click', function(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const formObject = Object.fromEntries(formData.entries());
-    const jsonData = JSON.stringify(formObject);
+    let product = {
+        descripcion : document.getElementById('productName').value,
+        stockActual : document.getElementById('stockActual').value,
+        stockMinimo : document.getElementById('stockMinimo').value,
+        precioVenta : document.getElementById('precioVenta').value,
+        numeroLote : document.getElementById('lote').value,
+        fechaVencimiento : document.getElementById('fecha').value,
+        idProveedor : document.getElementById('proveedor').value
+    }
 
     fetch('https://localhost:7241/api/Producto', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: jsonData
+        body: JSON.stringify(product)
     })
     .then(response => response.json())
     .then(data => {
@@ -32,7 +38,12 @@ document.getElementById('registerProductForm').addEventListener('submit', functi
         console.error('Error:', error);
         showMessage('Error al registrar el producto. Por favor, inténtelo de nuevo.');
     });
+
+
+
 });
+
+
 
 function showMessage(message) {
     const messageDiv = document.getElementById('message');

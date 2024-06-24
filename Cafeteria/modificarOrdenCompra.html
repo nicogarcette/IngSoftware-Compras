@@ -42,6 +42,8 @@
     <meta property="og:image"       content="img/logo-3-niveles.png" alt="logoPellegrini"> 
     <meta property="og:url"         content="https://es-la.facebook.com/ColegioCarlosPellegriniFv/"> 
 
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -55,12 +57,7 @@
         </div>
         
 		
-        <!--Botonera
-		<nav class="boton-REDES">
-
-		</nav>
-        -->
-
+  
     </header>
 
     <!--BOTONERA DE OPCIONES-->
@@ -117,14 +114,35 @@
 
     <div class="container">
         <h1>Modificar Orden de Compra</h1>
-        <div>
-            <label for="orderId">ID de Orden de Compra a Modificar:</label>
-            <input type="text" id="orderId" name="orderId" required>
-            <button type="button" onclick="fetchOrder()">Buscar</button>
+      
+        <form id="modifyForm">
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="opciones">Elige un Orden:</label>
+                    <select id="idOrden" name="idOrden" class="form-select">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                
+                <div class="col-md-6">
+                    <label for="productDescription">Descripcion:</label>
+                    <input id="ordenDescription" name="productDescription" class="form-control" required></input>
+                </div>
+                <div class="col-md-6">
+                    <label for="expiryDate">Fecha de Vencimiento:</label>
+                    <input type="date" id="Date" name="expiryDate" class="form-control" required>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="text-center">
+            <button id="btnModiOrden" class="btn btn-success"  type="button">Modificar</button>
         </div>
-        <div id="orderDetails" class="order-details">
-            <!-- Los detalles de la orden se insertarán aquí dinámicamente -->
-        </div>
+        
     </div>
 
 

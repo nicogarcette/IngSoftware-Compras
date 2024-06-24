@@ -1,4 +1,4 @@
-/* deleteProduct.js */
+
 document.getElementById('deleteProductForm').addEventListener('submit', function(event) {
     event.preventDefault();
   
@@ -22,6 +22,7 @@ const deleteProducto = async (productId) =>{
             showConfirmButton: false,
             timer: 1500
         });
+        cargarProducto();
     })
     .catch((error) => {
         Swal.fire({
@@ -31,6 +32,7 @@ const deleteProducto = async (productId) =>{
             showConfirmButton: false,
             timer: 1500
         });
+        cargarProducto();
     });
 }
 
@@ -39,6 +41,14 @@ const cargarProducto =()=>{
     .then(response => response.json())
     .then(data => {
         const select = document.getElementById('idProducto');
+
+            select.innerHTML = '';
+            const initialOption = document.createElement('option');
+            initialOption.value = '';
+            initialOption.textContent = 'Producto';
+            initialOption.disabled = true;
+            initialOption.selected = true;
+            select.appendChild(initialOption);
             data.forEach(producto => {
                 const option = document.createElement('option');
                 option.value = producto.id;  

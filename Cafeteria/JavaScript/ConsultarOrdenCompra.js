@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     async function fetchOrder(orderId) {
         try {
-            const response = await fetch(`YOUR_BACKEND_URL/orders/${orderId}`);
+            const response = await fetch(`https://localhost:7241/api/OrdenCompra/${orderId}`);
             if (!response.ok) {
                 throw new Error('Error al consultar la orden de compra.');
             }

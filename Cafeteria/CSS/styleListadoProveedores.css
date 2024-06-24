@@ -218,7 +218,6 @@ nav {
 
 /* styles.css */
 
-
 .container {
     background-color: #fff;
     padding: 20px;
@@ -229,7 +228,9 @@ nav {
     overflow-y: auto;
     max-height: 90vh;
 }
-
+.margin{
+    margin: 5rem 0 18.4rem 0;
+}
 h1 {
     margin-bottom: 20px;
     font-size: 24px;

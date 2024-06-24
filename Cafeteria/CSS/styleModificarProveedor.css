@@ -185,6 +185,12 @@ nav {
     max-width: 400px;
 }
 
+
+.margin{
+    margin-top: 2rem;
+    margin-bottom: 5.41rem ;
+
+}
 h1 {
     margin-bottom: 20px;
     font-size: 24px;

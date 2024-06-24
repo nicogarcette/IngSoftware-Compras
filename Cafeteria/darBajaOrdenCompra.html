@@ -42,6 +42,10 @@
     <meta property="og:image"       content="" alt="logoPellegrini"> 
     <meta property="og:url"         content=""> 
 
+    
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -54,13 +58,6 @@
             </a>
         </div>
         
-		
-        <!--Botonera
-		<nav class="boton-REDES">
-
-		</nav>
-        -->
-
     </header>
 
     <!--BOTONERA DE OPCIONES-->
@@ -118,13 +115,16 @@
 
     <div class="container">
         <h1>Baja de Orden de Compra</h1>
-        <div>
-            <label for="orderId">ID de Orden de Compra:</label>
-            <input type="text" id="orderId" name="orderId" required>
-            <button type="button" onclick="fetchOrder()">Buscar</button>
+        
+        <div class="form-row mb-4">
+            <label for="opciones">Seleccionar Orden de Compra:</label>
+            <select id="idOrden" name="idOrden" class="form-select">
+               
+            </select>
         </div>
-        <div id="orderDetails" class="order-details">
-            <!-- Los detalles de la orden se insertarán aquí dinámicamente -->
+
+        <div class="text-center">
+            <button id="deleteOrden" class="btn btn-success" type="submit">Dar de Baja</button>
         </div>
     </div>
 

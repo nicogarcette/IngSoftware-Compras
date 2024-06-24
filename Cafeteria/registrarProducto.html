@@ -110,22 +110,16 @@
     
 <!--Formulario de REGISTRAR PRODUCTO-->
 
-
-    <div class="container">
+    <div class="container margin">
         <h1>Registrar Producto</h1>
+
         <form id="registerProductForm">
-            <!-- <div class="form-row">
-                <label for="productCode">Código de Producto:</label>
-                <input type="text" id="productCode" name="productCode" required>
-            </div> -->
+            
             <div class="form-row">
                 <label for="productName">Nombre del Producto:</label>
                 <input type="text" id="productName" name="descripcion" required>
             </div>
-            <!-- <div class="form-row">
-                <label for="descripcion">Descripción:</label>
-                <input type="text" id="productDescription" name="productDescription" required>
-            </div> -->
+         
             <div class="form-row">
                 <label for="stockActual">Stock Actual:</label>
                 <input type="number" id="stockActual" name="stockActual" required>
@@ -136,7 +130,7 @@
             </div>
             <div class="form-row">
                 <label for="precioVenta">Precio:</label>
-                <input type="number" step="0.01" id="price" name="precioVenta" required>
+                <input type="number" step="0.01" id="precioVenta" name="precioVenta" required>
             </div>
             <div class="form-row">
                 <label for="precioVenta">Numero Lote:</label>
@@ -155,13 +149,11 @@
                 </select>
             </div>
             
-            <div class="form-row">
-                <br>
-                <button type="submit">Registrar Producto</button>
-            </div>
         </form>
-        <div id="message" class="message"></div>
-        <div id="productList" class="product-list"></div>
+
+        <div class="text-center mt-4">
+            <button id="addProducto" class="btn btn-success" type="button">Registrar Producto</button>
+        </div>
     </div>
 
     <br><br>
