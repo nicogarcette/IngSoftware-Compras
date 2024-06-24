@@ -131,7 +131,7 @@
     cargarProducto();
 
 
-document.getElementById('purchaseOrderForm').addEventListener('submit', async (event) => {
+document.getElementById('generarOrdenDeCompra').addEventListener('click', async (event) => {
     event.preventDefault();
 
     const order = {
@@ -161,6 +161,10 @@ document.getElementById('purchaseOrderForm').addEventListener('submit', async (e
         });
         
         document.getElementById('purchaseOrderForm').reset();
+        productosSeleccionados = [];
+        productosRequest = [];
+        const tbody = document.getElementById('productosTableBody');
+        tbody.innerHTML = '';
         
     } else {
         Swal.fire({

@@ -33,6 +33,9 @@ namespace Compras.Aplication.Services
             List<OrdenProducto> ordenProductos = new List<OrdenProducto>();
             int precioTotal = 0;
 
+
+            if(!orden.Productos.Any()) throw new Exception("Se requieren productos.");
+
             foreach(var item in orden.Productos)
             {
 
